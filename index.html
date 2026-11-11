@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#43264A">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Adventskalender">
+  <title>Adventskalender</title>
+  <link rel="icon" href="bilder/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="himmel" id="himmel" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="kopf">
+      <div class="deko" aria-hidden="true">
+        <svg class="mond" width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <path d="M40 8 A24 24 0 1 0 56 44 A19 19 0 1 1 40 8 Z" fill="#FFE1EC"/>
+          <path class="funkeln" d="M50 14 L51.2 19.8 L57 21 L51.2 22.2 L50 28 L48.8 22.2 L43 21 L48.8 19.8 Z" fill="#F0CF85"/>
+        </svg>
+        <svg class="fluegel" width="70" height="40" viewBox="0 0 58 34" fill="none" stroke="#F0CF85" stroke-width="1.3" stroke-linejoin="round">
+          <path d="M29 20 C22 6 9 2 4 7 C0 12 12 21 29 20 Z" fill="rgba(255,225,236,.18)"/>
+          <path d="M29 22 C22 23 12 29 15 32 C18 34 26 28 29 22 Z" fill="rgba(255,225,236,.18)"/>
+          <path d="M29 20 C36 6 49 2 54 7 C58 12 46 21 29 20 Z" fill="rgba(255,225,236,.18)"/>
+          <path d="M29 22 C36 23 46 29 43 32 C40 34 32 28 29 22 Z" fill="rgba(255,225,236,.18)"/>
+        </svg>
+      </div>
+
+      <h1 class="titel"><span id="titel-name">Saras</span><span class="titel-sub">Adventskalender</span></h1>
+      <p class="gruss" id="gruss"></p>
+      <p class="signatur" id="signatur"></p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label" id="stat-heute-label">Heute</span>
+          <span class="stat-wert" id="stat-heute"></span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Geöffnet</span>
+          <span class="stat-wert" id="stat-offen"></span>
+        </div>
+      </div>
+      <p class="vorschau-hinweis" id="vorschau-hinweis" hidden></p>
+    </header>
+
+    <main class="raster" id="raster" aria-label="24 Türchen"></main>
+
+    <footer class="fuss" id="fuss">Ein Sternchen pro Tag, bis Heiligabend</footer>
+  </div>
+
+  <!-- Geöffnetes Türchen -->
+  <dialog class="karte" id="karte" aria-labelledby="karte-titel">
+    <div class="karte-innen" id="karte-innen">
+      <button class="schliessen" type="button" data-schliessen aria-label="Schliessen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div id="karte-inhalt"></div>
+    </div>
+  </dialog>
+
+  <!-- Zu früh angetippt -->
+  <dialog class="karte karte-hinweis" id="hinweis" aria-labelledby="hinweis-titel">
+    <div class="karte-innen">
+      <svg class="hinweis-mond" width="72" height="72" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M40 8 A24 24 0 1 0 56 44 A19 19 0 1 1 40 8 Z" fill="#FFD3E3"/>
+        <path d="M24 34 q3 3 6 0 M34 34 q3 3 6 0" stroke="#7A3D6E" stroke-width="2" stroke-linecap="round"/>
+        <path class="funkeln" d="M52 10 L53 15 L58 16 L53 17 L52 22 L51 17 L46 16 L51 15 Z" fill="#E0B25A"/>
+      </svg>
+      <h2 class="hinweis-titel" id="hinweis-titel"></h2>
+      <p class="hinweis-text" id="hinweis-text"></p>
+      <p class="hinweis-countdown" id="hinweis-countdown"></p>
+      <button class="knopf" type="button" data-schliessen>Okay, ich warte</button>
+    </div>
+  </dialog>
+
+  <script src="inhalt.js"></script>
+  <script src="js/app.js"></script>
+  <script src="musik.js"></script>
+</body>
+</html>
